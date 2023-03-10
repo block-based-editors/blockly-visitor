@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Parser Editor</title>
+ <body>
+
+  <style>
+
+    .row {
+      display: flex;
+    }
+    
+    /* Create two equal columns that sits next to each other */
+    .column {
+      flex: 33%;
+      padding: 2px;
+    }
+    </style>
+
+
+  <div class="row">
+  <div class="column">
+    <input type="button" value="Load JSON" onclick="document.getElementById('input').click();" />
+    <input type="file" style="display:none;" id="input" name="file"/>
+    <div id="error" value="error"></div>
+    
+    <div id="blocklyDiv" style="height: 780px"></div>
+  </div>
+  <div class="column">
+    <input type="button" value="Load JSON" onclick="document.getElementById('input_match').click();" />
+    <input type="file" style="display:none;" id="input_match" name="file"/>
+    <button id="save">Save JSON</button>
+    <div id="input_match" value="error"></div>
+
+    <div id="blocklyMatch" style="height: 780px"></div>
+  </div>
+  <div class="column">
+    <div id="blocklyReplaced" style="height: 780px"></div>
+  </div>
+  
+</div>
+<textarea id="codeDiv" style="width: 100%; height: 100px;"></textarea>  
+
+<script src='./index.js'></script>
+
+</body>
+</html>
+ 

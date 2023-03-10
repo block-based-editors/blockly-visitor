@@ -1,0 +1,22 @@
+{
+  "name": "blockly-webpack-template",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "audit": "npm audit fix",
+    "update": "npm update",
+    "start": "webpack-dev-server --openssl-legacy-provider --port 3100",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@blockly/plugin-cross-tab-copy-paste": "^2.0.2",
+    "@blockly/plugin-workspace-search": "^6.0.2",
+    "blockly": "^9.0.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.4.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
