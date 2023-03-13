@@ -1,11 +1,12 @@
 # blockly-visitor
-Block-based vistor pattern, so matching and replacing in a block-ast tree
+Block-based vistor pattern, so matching and replacing in a block (ast) tree
 
 # [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly)
 
 This how to match blocks inspired by:
 [https://docs.rascal-mpl.org/unstable/Rascal/#Patterns-Concrete](https://www.rascal-mpl.org/docs/Rascal/Patterns/Concrete/)
 
+Origin location are preserved. 
 
 ## Installation
 
