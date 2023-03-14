@@ -3073,6 +3073,40 @@ function match_listener(event)
   Blockly.serialization.workspaces.load(workspace_blocks_json, workspace_replaced);
 }
 
+function modifyMatchBlocks(event)
+{
+  if (event.type == "create")
+  {
+    var block = workspace_match.getBlockById(event.blockId);
+    
+    // loop over the inputs
+    for (var i=0;block && i<block.inputList.length;i++)
+    {
+      // loop over the fields of an input
+      for (var j=0;j<block.inputList[i].fieldRow.length;j++)
+      {
+        // if the field is a dropdown
+        var field = block.inputList[i].fieldRow[j] 
+        
+        // remove the validators 
+        field.doClassValidation_ = function(value) { return value; };
+        
+        // FieldLabel
+        if (field.constructor.name.startsWith("FieldLabel") || 
+            field.constructor.name.startsWith("FieldDropdown"))
+        {
+          // Remove this field from the input
+          block.inputList[i].removeField(field.name);
+          
+          // replace the dropdown with a text field
+          var text_field = new Blockly.FieldTextInput(field.getText());
+          block.inputList[i].appendField(text_field, field.name);
+        }
+      }
+    }
+  }
+}
+
 export function start1()
 {
   inject();
@@ -3088,7 +3122,7 @@ export function start1()
   //workspace.addChangeListener(codeGeneration);
   workspace.addChangeListener(updateDropdownRename);
   workspace.addChangeListener(createRascal);
-
+  workspace_match.addChangeListener(modifyMatchBlocks);
   workspace.addChangeListener(match_listener);
   workspace_match.addChangeListener(match_listener);
 
