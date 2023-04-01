@@ -3079,6 +3079,13 @@ function modifyMatchBlocks(event)
   {
     var block = workspace_match.getBlockById(event.blockId);
     
+    // add top and bottom connectors to the new block
+    // should be part of the creation of a block
+    // previous and next can only be changed in the init or loadState
+    // as a InsertMarker blocks are created with previous and next set to null
+    //block.setPreviousStatement(true, null);
+    //block.setNextStatement(true, null);
+
     // loop over the inputs
     for (var i=0;block && i<block.inputList.length;i++)
     {

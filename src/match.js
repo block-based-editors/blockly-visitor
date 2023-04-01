@@ -65,7 +65,7 @@ function match_replace_block(json_block_holder, pattern_block_json, replace_bloc
       var variable = variables[j];
       code += '  ' + variable.name + ':' + variable.new_value + ' ' + variable.loc + '\n'
     }
-    console.log(block_json)
+    
     var replace_block_json = Blockly.serialization.blocks.save(replace_block, {addCoordinates: true, addInputBlocks: true, addNextBlocks: true});
     replace_block_json.data = block_json.data
     // replace variables by values
@@ -144,9 +144,15 @@ function match(pattern, block) {
             }
             else // no filter is specified
             {  
+              var loc = null;
+              if (block.data && block.data.fields_loc)
+              {
+                loc = block.data.fields_loc[pattern_field]
+              }
+              
               saved_variables.push({"name":pattern.fields[pattern_field], 
                                     "new_value":block.fields[pattern_field], 
-                                    "loc": block.data.fields_loc[pattern_field]});
+                                    "loc":loc});
             }
           
         } else if (pattern.fields[pattern_field] != block.fields[pattern_field]) {
