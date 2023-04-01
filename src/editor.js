@@ -2256,56 +2256,21 @@ function inject()
       ]
      },
      {
-      "kind": "category",
-      "name" : "Library",
-      "colour": "#f63",
-      "contents": [
-        {
-          "kind": "block",
-          "type": "controls_for"
-        }
-      ]
-     },
-     {
-      "kind": "category",
-      "name": "Variables",
-      "custom": "VARIABLE"
-     },
+      "kind":"sep"
+    },
+    {
+      "kind":"sep"
+    },
+    
      {
       "kind":"category",
       "name":"Logic",
       "categorystyle":"logic_category",
       "contents":[
-        {
-          "kind":"category",
-          "name":"If",
-          "contents":[
             {
-              "kind":"block",
-              "type":"controls_if"
+                "kind":"block",
+                "type":"controls_if"
             },
-            {
-              "kind":"block",
-              "type":"controls_if",
-              "extraState":{
-                "hasElse":"true"
-              }
-            },
-            {
-              "kind":"block",
-              "type":"controls_if",
-              "extraState":{
-                "hasElse":"true",
-                "elseIfCount":1
-              }
-            }
-          ]
-        },
-        {
-          "kind":"category",
-          "name":"Boolean",
-          "categorystyle":"logic_category",
-          "contents":[
             {
               "kind":"block",
               "type":"logic_compare"
@@ -2331,8 +2296,8 @@ function inject()
               "type":"logic_ternary"
             }
           ]
-        }
-      ]
+        
+      
     },
     {
       "kind":"category",
@@ -2599,409 +2564,7 @@ function inject()
       "categorystyle":"procedure_category",
       "custom":"PROCEDURE"
     },
-    {
-      "kind":"category",
-      "name":"Library",
-      "expanded":"true",
-      "contents":[
-        {
-          "kind":"category",
-          "name":"Randomize",
-          "contents":[
-            {
-              "kind":"block",
-              "type":"procedures_defnoreturn",
-              "extraState":{
-                "params":[
-                  {
-                    "name":"list"
-                  }
-                ]
-              },
-              "icons":{
-                "comment":{
-                  "text":"Describe this function...",
-                  "pinned":false,
-                  "height":80,
-                  "width":160
-                }
-              },
-              "fields":{
-                "NAME":"randomize"
-              },
-              "inputs":{
-                "STACK":{
-                  "block":{
-                    "type":"controls_for",
-                    "fields":{
-                      "VAR":{
-                        "name":"x"
-                      }
-                    },
-                    "inputs":{
-                      "FROM":{
-                        "block":{
-                          "type":"math_number",
-                          "fields":{
-                            "NUM":1
-                          }
-                        }
-                      },
-                      "TO":{
-                        "block":{
-                          "type":"lists_length",
-                          "inline":false,
-                          "inputs":{
-                            "VALUE":{
-                              "block":{
-                                "type":"variables_get",
-                                "fields":{
-                                  "VAR":{
-                                    "name":"list"
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "BY":{
-                        "block":{
-                          "type":"math_number",
-                          "fields":{
-                            "NUM":1
-                          }
-                        }
-                      },
-                      "DO":{
-                        "block":{
-                          "type":"variables_set",
-                          "inline":false,
-                          "fields":{
-                            "VAR":{
-                              "name":"y"
-                            }
-                          },
-                          "inputs":{
-                            "VALUE":{
-                              "block":{
-                                "type":"math_random_int",
-                                "inputs":{
-                                  "FROM":{
-                                    "block":{
-                                      "type":"math_number",
-                                      "fields":{
-                                        "NUM":1
-                                      }
-                                    }
-                                  },
-                                  "TO":{
-                                    "block":{
-                                      "type":"lists_length",
-                                      "inline":false,
-                                      "inputs":{
-                                        "VALUE":{
-                                          "block":{
-                                            "type":"variables_get",
-                                            "fields":{
-                                              "VAR":{
-                                                "name":"list"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "next":{
-                            "block":{
-                              "type":"variables_set",
-                              "inline":false,
-                              "fields":{
-                                "VAR":{
-                                  "name":"temp"
-                                }
-                              },
-                              "inputs":{
-                                "VALUE":{
-                                  "block":{
-                                    "type":"lists_getIndex",
-                                    "fields":{
-                                      "MODE":"GET",
-                                      "WHERE":"FROM_START"
-                                    },
-                                    "inputs":{
-                                      "VALUE":{
-                                        "block":{
-                                          "type":"variables_get",
-                                          "fields":{
-                                            "VAR":{
-                                              "name":"list"
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "AT":{
-                                        "block":{
-                                          "type":"variables_get",
-                                          "fields":{
-                                            "VAR":{
-                                              "name":"y"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "next":{
-                                "block":{
-                                  "type":"lists_setIndex",
-                                  "inline":false,
-                                  "fields":{
-                                    "MODE":"SET",
-                                    "WHERE":"FROM_START"
-                                  },
-                                  "inputs":{
-                                    "LIST":{
-                                      "block":{
-                                        "type":"variables_get",
-                                        "fields":{
-                                          "VAR":{
-                                            "name":"list"
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "AT":{
-                                      "block":{
-                                        "type":"variables_get",
-                                        "fields":{
-                                          "VAR":{
-                                            "name":"y"
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "TO":{
-                                      "block":{
-                                        "type":"lists_getIndex",
-                                        "fields":{
-                                          "MODE":"GET",
-                                          "WHERE":"FROM_START"
-                                        },
-                                        "inputs":{
-                                          "VALUE":{
-                                            "block":{
-                                              "type":"variables_get",
-                                              "fields":{
-                                                "VAR":{
-                                                  "name":"list"
-                                                }
-                                              }
-                                            }
-                                          },
-                                          "AT":{
-                                            "block":{
-                                              "type":"variables_get",
-                                              "fields":{
-                                                "VAR":{
-                                                  "name":"x"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "next":{
-                                    "block":{
-                                      "type":"lists_setIndex",
-                                      "inline":false,
-                                      "fields":{
-                                        "MODE":"SET",
-                                        "WHERE":"FROM_START"
-                                      },
-                                      "inputs":{
-                                        "LIST":{
-                                          "block":{
-                                            "type":"variables_get",
-                                            "fields":{
-                                              "VAR":{
-                                                "name":"list"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "AT":{
-                                          "block":{
-                                            "type":"variables_get",
-                                            "fields":{
-                                              "VAR":{
-                                                "name":"x"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "TO":{
-                                          "block":{
-                                            "type":"variables_get",
-                                            "fields":{
-                                              "VAR":{
-                                                "name":"temp"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        {
-          "kind":"category",
-          "name":"Jabberwocky",
-          "contents":[
-            {
-              "kind":"block",
-              "type":"text_print",
-              "inputs":{
-                "TEXT":{
-                  "block":{
-                    "type":"text",
-                    "fields":{
-                      "TEXT":"'Twas brillig, and the slithy toves"
-                    }
-                  }
-                }
-              },
-              "next":{
-                "block":{
-                  "type":"text_print",
-                  "inputs":{
-                    "TEXT":{
-                      "block":{
-                        "type":"text",
-                        "fields":{
-                          "TEXT":"  Did gyre and gimble in the wabe:"
-                        }
-                      }
-                    }
-                  },
-                  "next":{
-                    "block":{
-                      "type":"text_print",
-                      "inputs":{
-                        "TEXT":{
-                          "block":{
-                            "type":"text",
-                            "fields":{
-                              "TEXT":"All mimsy were the borogroves,"
-                            }
-                          }
-                        }
-                      },
-                      "next":{
-                        "block":{
-                          "type":"text_print",
-                          "inputs":{
-                            "TEXT":{
-                              "block":{
-                                "type":"text",
-                                "fields":{
-                                  "TEXT":"  And the mome raths outgrabe."
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "kind":"block",
-              "type":"text_print",
-              "inputs":{
-                "TEXT":{
-                  "block":{
-                    "type":"text",
-                    "fields":{
-                      "TEXT":"\"Beware the Jabberwock, my son!"
-                    }
-                  }
-                }
-              },
-              "next":{
-                "block":{
-                  "type":"text_print",
-                  "inputs":{
-                    "TEXT":{
-                      "block":{
-                        "type":"text",
-                        "fields":{
-                          "TEXT":"  The jaws that bite, the claws that catch!"
-                        }
-                      }
-                    }
-                  },
-                  "next":{
-                    "block":{
-                      "type":"text_print",
-                      "inputs":{
-                        "TEXT":{
-                          "block":{
-                            "type":"text",
-                            "fields":{
-                              "TEXT":"Beware the Jubjub bird, and shun"
-                            }
-                          }
-                        }
-                      },
-                      "next":{
-                        "block":{
-                          "type":"text_print",
-                          "inputs":{
-                            "TEXT":{
-                              "block":{
-                                "type":"text",
-                                "fields":{
-                                  "TEXT":"  The frumious Bandersnatch!\""
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        }
-      ]
-    },
-     
+    
      {
       "kind": "category",
       "name" : "Basic",
@@ -3095,7 +2658,8 @@ function modifyMatchBlocks(event)
         // if the field is a dropdown
         var field = block.inputList[i].fieldRow[j] 
         
-        // remove the validators 
+        // remove the validators for example applicable for math_number so 
+        // variable names can be entered
         field.doClassValidation_ = function(value) { return value; };
         
         // FieldLabel
@@ -3110,6 +2674,13 @@ function modifyMatchBlocks(event)
           block.inputList[i].appendField(text_field, field.name);
         }
       }
+    }
+    console.log('hi')
+    // does the block have extra state?
+    // if so, remove it
+    if (block.extraState)
+    {
+
     }
   }
 }
